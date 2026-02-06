@@ -11,6 +11,8 @@ public class Main {
         final var wordToGuess = words[random.nextInt(words.length)];
         final var game = new GuessGame(wordToGuess, 10);
 
+        System.out.println("Début du jeu.");
+
         while (true) {
             System.out.println(game);
             System.out.println("Entrez une lettre : ");
