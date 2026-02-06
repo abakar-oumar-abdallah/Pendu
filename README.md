@@ -1,10 +1,52 @@
 # Pendu
-Le but du jeu est de faire deviner un mot secret à un joueur.
 
-A chaque tentative, le joueur propose une lettre :
+# Description du projet
 
-Si la lettre est correcte, elle est révélée dans le mot.
+Le jeu du Pendu est un jeu de devinette dans lequel le joueur doit trouver un mot secret en proposant des lettres.
+Chaque erreur fait perdre une vie, tandis que chaque bonne lettre est révélée dans le mot.
 
-Si elle est incorrecte, une partie du pendu est dessinée.
+Ce projet consiste à implémenter ce jeu en Java dans le terminal.
 
-Le joueur gagne s'il trouve le mot avant que le pendu soit complètement dessiné.
+# Objectif du jeu
+
+Le programme sélectionne un mot aléatoire parmi une liste de mots.
+
+Le mot est affiché sous forme de tirets, un tiret par lettre.
+
+Le joueur propose des lettres pour deviner le mot.
+
+# Règles du jeu
+
+Le joueur commence avec 10 vies.
+
+chaque lettre incorrecte, il perd une vie.
+
+chaque lettre correcte, la lettre apparaît à la bonne position dans le mot.
+
+Le jeu continue jusqu'à ce que :
+
+Le joueur trouve le mot ->  Victoire
+
+Le joueur n'a plus de vies -> Défaite
+
+# Fonctionnalités
+
+Sélection aléatoire'un mot
+
+Affichage progressif du mot (tirets ->  lettres trouvées)
+
+Gestion du nombre de vies restantes
+
+Vérification des lettres déjà proposées
+
+Condition de victoire et de défaite
+
+# Technologies utilisées
+
+Java
+
+Console (Terminal)
+
+Programmation orientée objet
+
+Structures de données (String, Array, List)
