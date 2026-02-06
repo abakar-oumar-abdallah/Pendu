@@ -1,0 +1,24 @@
+Classe Main :
+
+Tout d'abord, les imports. Nous avons besoin d'utiliser les classes Scanner et Random pour développer le Pendu afin de lire
+les inputs utilisateurs et de pouvoir générer des nombres aléatoires. Enfin, nous importons une classe à nous, GuessGame,
+qui va encapsuler les attributs et les comportements nécessaires au bon fonctionnement du jeu. Le détail de l'implémentation
+de cette classe est disponible après le détail de la classe Main.
+
+final var scanner = new Scanner(System.in); : On instancie un objet de type Scanner qui prend en entrée les informations saisies par l'utilisateur dans la console.
+
+final var random = new Random(); : On instancie un objet de type Random qui va nous permettre de générer des entiers aléatoires.
+
+final var words = "abuser crottes fleches continentale babiole etoile bougie coup coeur malade".split(" "); : On instancie un tableau
+de chaînes de caractères. La méthode split de String nous permet de séparer tous les mots d'une chaine grâce à un séparateur, ici l'espace " ",
+afin d'alimenter un tableau avec lequel tous les mots se retrouve à un index différent. On aurait très bien pu écrire un tableau directement de la manière suivante :
+final var words = new String[] {"abuser", "crottes", "..."};. Cependant, il était intéressant ici de découvrir le fonctionnement de la méthode split dans String.
+
+final var wordToGuess = words[random.nextInt(words.length)]; : On sélectionne un mot aléatoire dans le tableau en générant un entier aléatoire compris entre 0 (inclu) et la taille du tableau (exclu).
+Cet entier aléatoire est utilisé comme index d'accès du tableau.
+
+final var game = new GuessGame(wordToGuess, 10); : On crée un objet de type GuessGame auquel on passe les attributs suivants : le mot sélectionné aléatoirement et le nombre de vies (10).
+Cela nous permettra d'appeler des méthodes qui pourront accéder à ces valeurs directement.
+
+System.out.println("Début du jeu."); : Affiche dans la console que le jeu du Pendu a commencé.
+while (true) { ... } : La boucle principale du jeu. Elle n'est pas encore complète, seule la lecture de la lettre de l'utilisateur est présente.
