@@ -19,21 +19,21 @@ Le joueur propose des lettres pour deviner le mot.
 
 Le joueur commence avec 10 vies.
 
-chaque lettre incorrecte, il perd une vie.
+Chaque lettre incorrecte, il perd une vie.
 
-chaque lettre correcte, la lettre apparaît à la bonne position dans le mot.
+Chaque lettre correcte, la lettre apparaît à la bonne position dans le mot.
 
 Le jeu continue jusqu'à ce que :
 
-Le joueur trouve le mot ->  Victoire
+Le joueur trouve le mot →  Victoire
 
-Le joueur n'a plus de vies -> Défaite
+Le joueur n'a plus de vies → Défaite
 
 # Fonctionnalités
 
-Sélection aléatoire'un mot
+Sélection aléatoire d'un mot
 
-Affichage progressif du mot (tirets ->  lettres trouvées)
+Affichage progressif du mot (tirets →  lettres trouvées)
 
 Gestion du nombre de vies restantes
 
