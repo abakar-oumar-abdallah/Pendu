@@ -22,3 +22,26 @@ Cela nous permettra d'appeler des méthodes qui pourront accéder à ces valeurs
 
 System.out.println("Début du jeu."); : Affiche dans la console que le jeu du Pendu a commencé.
 while (true) { ... } : La boucle principale du jeu. Elle n'est pas encore complète, seule la lecture de la lettre de l'utilisateur est présente.
+
+Classe GuessGame :
+
+private final List<Character> secretWord = new ArrayList<>(); : Une liste de caractère représentant le mot à deviner. Elle est final car la variable ne sera jamais réassignée.
+La liste référencée est cependant mutable.
+
+private int lifePoints; : Le nombre de points de vies du pendu. Cet attribut doit être mutable pour pouvoir enlever des points de vie en cas d'erreur. Il ne faut donc pas le mot-clé final.
+
+private final List<Character> guessWord = new ArrayList<>(); : Une liste de caractère représentant des tirets ou les lettres devinées par le joueur.
+Elle est final car la variable ne sera jamais réassignée. La liste référencée est cependant mutable. C'est important qu'elle soit mutable pour qu'on puisse remplacer les '_' par les lettres trouvées par le joueur.
+
+public GuessGame(String secretWord, int lifePoints) { ... } : Le constructeur. Il permet de renseigner les trois attributs de l'objet à construire de la manière suivante :
+
+Convertit le mot à deviner en liste de caractères dans l'attribut secretWord. Il sera beaucoup plus simple de développer l'algorithme du Pendu sur une liste de caractères, notamment grâce aux méthodes présentes dans ArrayList.
+En effet, on aura besoin de listes ordonnées pour comparer le mot à deviner avec le mot contenant des '_'.
+
+Remplit l'attribut lifePoints avec le paramètre passé en entrée du constructeur.
+
+Boucle sur la taille du mot à deviner pour remplir l'attribut guessWord avec le bon nombre de '_' (les lettres à deviner).
+
+Surcharge de toString : Permet l'affichage à chaque tour du jeu de l'état d'avancement de la découverte du mot à deviner stocké dans l'attribut guessWord.
+Affiche également le nombre de points de vies restants stockés dans l'attribut lifePoints.
+
