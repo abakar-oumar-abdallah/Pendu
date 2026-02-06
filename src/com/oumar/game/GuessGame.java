@@ -21,9 +21,7 @@ public class GuessGame {
 
     @Override
     public String toString() {
-        return "GuessGame{" +
-                "lifePoints=" + lifePoints +
-                ", guessWord=" + guessWord +
-                '}';
+        return "mot à déviner : " + guessWord +
+                " | points de vie " + lifePoints;
     }
 }
