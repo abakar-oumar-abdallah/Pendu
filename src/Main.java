@@ -15,8 +15,20 @@ public class Main {
 
         while (true) {
             System.out.println(game);
-            System.out.println("Entrez une lettre : ");
-            final var lettre = scanner.nextLine().charAt(0);
+            System.out.println("Entrez une lettre :");
+            final var letter = scanner.nextLine().charAt(0);
+
+            game.guessLetter(letter);
+            if (game.isLost()) {
+                System.out.println(game);
+                System.out.println("Perdu !");
+                break;
+            }
+            if (game.isWon()) {
+                System.out.println(game);
+                System.out.println("Gagné !");
+                break;
+            }
         }
     }
 }

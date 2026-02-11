@@ -19,9 +19,33 @@ public class GuessGame {
         }
     }
 
+    public void guessLetter(char letter) {
+        var isGoodLetter = secretWord.contains(letter) && !guessWord.contains(letter);
+
+        if (isGoodLetter) {
+            var index = 0;
+            for (char c : secretWord) {
+                if (c == letter) {
+                    guessWord.set(index, c);
+                }
+                index ++;
+            }
+        } else {
+            lifePoints -= 1;
+        }
+    }
+
+    public boolean isLost() {
+        return lifePoints <= 0;
+    }
+
+    public boolean isWon() {
+        return !guessWord.contains('_');
+    }
+
     @Override
     public String toString() {
-        return "mot à déviner : " + guessWord +
-                " | points de vie " + lifePoints;
+        return "mot à deviner : " + guessWord +
+                " | points de vie : " + lifePoints;
     }
 }
