@@ -1,0 +1,47 @@
+Classe Main :
+
+Tout d'abord, les imports. Nous avons besoin d'utiliser les classes Scanner et Random pour développer le Pendu afin de lire
+les inputs utilisateurs et de pouvoir générer des nombres aléatoires. Enfin, nous importons une classe à nous, GuessGame,
+qui va encapsuler les attributs et les comportements nécessaires au bon fonctionnement du jeu. Le détail de l'implémentation
+de cette classe est disponible après le détail de la classe Main.
+
+final var scanner = new Scanner(System.in); : On instancie un objet de type Scanner qui prend en entrée les informations saisies par l'utilisateur dans la console.
+
+final var random = new Random(); : On instancie un objet de type Random qui va nous permettre de générer des entiers aléatoires.
+
+final var words = "abuser crottes fleches continentale babiole etoile bougie coup coeur malade".split(" "); : On instancie un tableau
+de chaînes de caractères. La méthode split de String nous permet de séparer tous les mots d'une chaine grâce à un séparateur, ici l'espace " ",
+afin d'alimenter un tableau avec lequel tous les mots se retrouve à un index différent. On aurait très bien pu écrire un tableau directement de la manière suivante :
+final var words = new String[] {"abuser", "crottes", "..."};. Cependant, il était intéressant ici de découvrir le fonctionnement de la méthode split dans String.
+
+final var wordToGuess = words[random.nextInt(words.length)]; : On sélectionne un mot aléatoire dans le tableau en générant un entier aléatoire compris entre 0 (inclu) et la taille du tableau (exclu).
+Cet entier aléatoire est utilisé comme index d'accès du tableau.
+
+final var game = new GuessGame(wordToGuess, 10); : On crée un objet de type GuessGame auquel on passe les attributs suivants : le mot sélectionné aléatoirement et le nombre de vies (10).
+Cela nous permettra d'appeler des méthodes qui pourront accéder à ces valeurs directement.
+
+System.out.println("Début du jeu."); : Affiche dans la console que le jeu du Pendu a commencé.
+while (true) { ... } : La boucle principale du jeu. Elle n'est pas encore complète, seule la lecture de la lettre de l'utilisateur est présente.
+
+Classe GuessGame :
+
+private final List<Character> secretWord = new ArrayList<>(); : Une liste de caractère représentant le mot à deviner. Elle est final car la variable ne sera jamais réassignée.
+La liste référencée est cependant mutable.
+
+private int lifePoints; : Le nombre de points de vies du pendu. Cet attribut doit être mutable pour pouvoir enlever des points de vie en cas d'erreur. Il ne faut donc pas le mot-clé final.
+
+private final List<Character> guessWord = new ArrayList<>(); : Une liste de caractère représentant des tirets ou les lettres devinées par le joueur.
+Elle est final car la variable ne sera jamais réassignée. La liste référencée est cependant mutable. C'est important qu'elle soit mutable pour qu'on puisse remplacer les '_' par les lettres trouvées par le joueur.
+
+public GuessGame(String secretWord, int lifePoints) { ... } : Le constructeur. Il permet de renseigner les trois attributs de l'objet à construire de la manière suivante :
+
+Convertit le mot à deviner en liste de caractères dans l'attribut secretWord. Il sera beaucoup plus simple de développer l'algorithme du Pendu sur une liste de caractères, notamment grâce aux méthodes présentes dans ArrayList.
+En effet, on aura besoin de listes ordonnées pour comparer le mot à deviner avec le mot contenant des '_'.
+
+Remplit l'attribut lifePoints avec le paramètre passé en entrée du constructeur.
+
+Boucle sur la taille du mot à deviner pour remplir l'attribut guessWord avec le bon nombre de '_' (les lettres à deviner).
+
+Surcharge de toString : Permet l'affichage à chaque tour du jeu de l'état d'avancement de la découverte du mot à deviner stocké dans l'attribut guessWord.
+Affiche également le nombre de points de vies restants stockés dans l'attribut lifePoints.
+
