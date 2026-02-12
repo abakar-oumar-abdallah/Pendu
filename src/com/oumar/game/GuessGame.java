@@ -66,7 +66,7 @@ public class GuessGame {
 
     /**
      * Check if the game is lost.
-     * @return boolean true if the game is lost, false otherwise.
+     * @return boolean true if the game is lost, false otherwise...
      */
     public boolean isLost() {
         return lifePoints <= 0;

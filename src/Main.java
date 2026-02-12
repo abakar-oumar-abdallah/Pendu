@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
- * Class of the entrypoint of the Guess Game.
+ * Class of the entrypoint of the Guess Game....
  */
 public class Main {
 
